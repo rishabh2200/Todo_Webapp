@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly when there are no items 1`] = `
+<main
+  className="content"
+>
+  <h1
+    className="text-white text-uppercase text-center my-4"
+  >
+    Todo app
+  </h1>
+  <form
+    className=""
+  >
+    <div
+      className="position-relative form-group"
+    >
+      <label
+        className=""
+        htmlFor="reminder_datatime"
+      >
+        sending_date
+      </label>
+      <input
+        className="form-control"
+        name="reminder_datatime"
+        onChange={[Function]}
+        placeholder="Enter Todo reminder_datatime"
+        type="datetime-local"
+        value=""
+      />
+    </div>
+    <button
+      aria-label={null}
+      className="btn btn-success"
+      onClick={[Function]}
+      type="button"
+    >
+      send_mail
+    </button>
+  </form>
+  <div
+    className="row "
+  >
+    <div
+      className="col-md-6 col-sm-10 mx-auto p-0"
+    >
+      <div
+        className="card p-3"
+      >
+        <div
+          className=""
+        >
+          <button
+            className="btn btn-primary"
+            onClick={[Function]}
+          >
+            Add task
+          </button>
+        </div>
+        <div
+          className="my-5 tab-list"
+        >
+          <span
+            className=""
+            onClick={[Function]}
+          >
+            complete
+          </span>
+          <span
+            className="active"
+            onClick={[Function]}
+          >
+            Incomplete
+          </span>
+        </div>
+        <ul
+          className="list-group list-group-flush"
+        />
+      </div>
+    </div>
+  </div>
+</main>
+`;
