@@ -3,7 +3,7 @@ pipeline {
     environment {
         TODO_CLOUD_DISTRIBUTION='EYCSK08XSZETG'
         TODO_BUCKET_NAME='dev-s3-bucket-frontend-rishabh2200'
-        TODO_URL='http://3.92.33.243:8000'
+        TODO_URL='dev-loadbalancer-1509350563.us-east-1.elb.amazonaws.com'
 
     }
     stages {
