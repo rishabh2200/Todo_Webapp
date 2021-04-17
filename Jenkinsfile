@@ -7,21 +7,30 @@ pipeline {
 
     }
     stages {
-        stage('test') {
+        stage('build') {
             steps {
                 git credentialsId: 'cff5313b-2c9f-4d48-9be4-5b51400e4338', url: 'git@code.jtg.tools:rishabh.bansal/todo-webapp.git'
-                sh '''#!/bin/bash
-                cd frontend
-                npm test -- --watchAll=false
-                '''
             }
         }
-        stage('Build') {
+        stage('Test') {
             steps {
-                sh '''#!/bin/bash
-                cd frontend
-                ./script.sh
-                '''
+                dir('frontend'){
+                    sh """#!/bin/bash
+                        pwd
+                        npm test -- --watchAll=false
+                    """
+                }
+            }
+        }
+        stage('Deploy') {
+            steps {
+                dir('frontend')
+                {
+                    sh """#!/bin/bash
+                        cd frontend
+                        ./script.sh
+                    """
+                }
             }
         }
     }
