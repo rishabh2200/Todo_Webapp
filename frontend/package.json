@@ -55,6 +55,7 @@
     "sw-precache-webpack-plugin": "0.11.5",
     "terser-webpack-plugin": "1.1.0",
     "thread-loader": "1.2.0",
+    "upath": "^2.0.1",
     "url-loader": "1.1.1",
     "webpack": "4.19.1",
     "webpack-dev-server": "3.1.9",
