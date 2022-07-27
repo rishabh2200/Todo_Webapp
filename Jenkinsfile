@@ -12,7 +12,7 @@ pipeline {
                     sh"""
                     rm -rf node_modules/
                     npm install
-                    npm test -- --watchAll=false
+                    npm run test -- --coverage --ci --reporters=default  --coverageReporters=cobertura
                     """
                 }
             }
@@ -21,6 +21,7 @@ pipeline {
     post {
        // only triggered when blue or green sign
        success {
+          cobertura coberturaReportFile: 'frontend/coverage/cobertura-coverage.xml'
           slackSend message: 'demo_frontend success'
        }
        // triggered when red sign
