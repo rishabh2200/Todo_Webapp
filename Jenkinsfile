@@ -3,7 +3,7 @@ pipeline {
     environment {
         TODO_BUCKET_NAME='dev-s3-bucket-frontend-rishabh2299'
         TODO_CLOUD_DISTRIBUTION ='E1J28IPTX3XB8F'
-        TODO_URL='http://18.209.95.92:8000'
+        TODO_URL='http://dev-lb-tf-1501997249.us-east-1.elb.amazonaws.com:8000'
     }
     stages {
         stage('build') {
