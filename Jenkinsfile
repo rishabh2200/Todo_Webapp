@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         TODO_BUCKET_NAME='dev-s3-bucket-frontend-rishabh2299'
-        TODO_CLOUD_DISTRIBUTION ='E331PDGKXGL0TN'
+        TODO_CLOUD_DISTRIBUTION ='E1J28IPTX3XB8F'
         TODO_URL='http://18.209.95.92:8000'
     }
     stages {
