@@ -1,5 +1,10 @@
 pipeline {
     agent any
+    environment {
+        TODO_BUCKET_NAME='dev-s3-bucket-frontend-rishabh2299'
+        TODO_CLOUD_DISTRIBUTION ='E331PDGKXGL0TN'
+        TODO_URL='http://18.209.95.92:8000'
+    }
     stages {
         stage('build') {
             steps {
@@ -14,6 +19,20 @@ pipeline {
                     npm install
                     npm run test -- --coverage --ci --reporters=default  --coverageReporters=cobertura
                     """
+                }
+            }
+        }
+        stage('deploy') {
+            steps {
+                dir("${env.WORKSPACE}/frontend"){
+                     withCredentials([[
+                        $class: 'AmazonWebServicesCredentialsBinding', 
+                        accessKeyVariable: 'AWS_ACCESS_KEY_ID', 
+                        secretKeyVariable: 'AWS_SECRET_ACCESS_KEY',
+                        credentialsId: 'aws_cred'
+                        ]]) {
+                                sh """ ./script.sh """
+                            }
                 }
             }
         }
