@@ -1,9 +1,9 @@
 pipeline {
     agent any
     environment {
-        TODO_BUCKET_NAME='dev-s3-bucket-frontend-rishabh2299'
+        TODO_BUCKET_NAME        ='dev-s3-bucket-frontend-rishabh2299'
         TODO_CLOUD_DISTRIBUTION ='E1J28IPTX3XB8F'
-        TODO_URL='http://dev-lb-tf-1501997249.us-east-1.elb.amazonaws.com:8000'
+        TODO_URL                ='http://dev-lb-tf-1104880883.us-east-1.elb.amazonaws.com:8000'
     }
     stages {
         stage('build') {
@@ -26,10 +26,10 @@ pipeline {
             steps {
                 dir("${env.WORKSPACE}/frontend"){
                      withCredentials([[
-                        $class: 'AmazonWebServicesCredentialsBinding', 
+                        $class:            'AmazonWebServicesCredentialsBinding', 
                         accessKeyVariable: 'AWS_ACCESS_KEY_ID', 
                         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY',
-                        credentialsId: 'aws_cred'
+                        credentialsId:     'aws_cred'
                         ]]) {
                                 sh """ ./script.sh """
                             }
@@ -41,11 +41,11 @@ pipeline {
        // only triggered when blue or green sign
        success {
           cobertura coberturaReportFile: 'frontend/coverage/cobertura-coverage.xml'
-          slackSend message: 'demo_frontend success'
+          slackSend message:             'demo_frontend success'
        }
        // triggered when red sign
        failure {
-           slackSend message: 'demo_frontend failure failure'
+           slackSend message:            'demo_frontend failure failure'
        }
     }
 }
