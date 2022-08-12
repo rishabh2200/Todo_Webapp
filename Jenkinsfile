@@ -1,9 +1,9 @@
 pipeline {
     agent any
     environment {
-        TODO_BUCKET_NAME        ='dev-s3-bucket-frontend-rishabh2299'
-        TODO_CLOUD_DISTRIBUTION ='E1J28IPTX3XB8F'
-        TODO_URL                ='http://dev-lb-tf-1104880883.us-east-1.elb.amazonaws.com:8000'
+        TODO_BUCKET_NAME        ="$TODO_BUCKET_NAME"
+        TODO_CLOUD_DISTRIBUTION ="$TODO_CLOUD_DISTRIBUTION"
+        TODO_URL                ="$TODO_URL"
     }
     stages {
         stage('build') {
